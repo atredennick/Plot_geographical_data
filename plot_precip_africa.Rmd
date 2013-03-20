@@ -9,7 +9,7 @@ First download the CRU precipitation data from this repository to your local wor
 
 Start by loading the necessary libraries (``ncdf``, ``ggplot2``, and ``reshape``) and naming some data variables.
 
-```{r}
+```{r, results='asis', echo=FALSE}
 #Set working directory (change according to your system)
 #Make sure to download the CRU precipitation data to the wkdir
 wkdir = "/users/atredenn/Plot_geographical_data/"
@@ -34,7 +34,7 @@ Rain[Rain<0] <- NA
 
 Now we can move to actually making the plot. First we melt the data,
 
-```{r}
+```{r, results='asis', echo=FALSE}
 #Melt the data for easier plotting
 rain_df = melt(Rain)
 
