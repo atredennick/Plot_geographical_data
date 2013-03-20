@@ -1,0 +1,15 @@
+Making a Simple Map in R
+========================================================
+
+I started messing around with plotting geographical data using ``ggplot2`` yesterday and some folks are interested in the basic syntax. Admittedly, what I have here is not the best (i.e. I don't truly map latitude longitude, but instead just ``melt`` the netcdf matrix), so hopefully someone will fork this and make it better!
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r fig.width=7, fig.height=6}
+plot(cars)
+```
+
