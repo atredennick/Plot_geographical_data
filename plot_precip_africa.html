@@ -197,23 +197,7 @@ setwd(wkdir)
 library(ncdf)
 library(ggplot2)
 library(reshape)
-</code></pre>
 
-<pre><code>## Loading required package: plyr
-</code></pre>
-
-<pre><code>## 
-## Attaching package: &#39;reshape&#39;
-## 
-</code></pre>
-
-<pre><code>## The following object(s) are masked from &#39;package:plyr&#39;:
-## 
-##     rename, round_any
-## 
-</code></pre>
-
-<pre><code class="r">
 # Extract netCDF data and place precipitation data (&#39;pre&#39;) in the variable
 # &#39;Rain0&#39;
 Rain.NC &lt;- open.ncdf(&quot;africa_cru_3.0.1961.2006.meanAnnPrec.nc&quot;)
@@ -232,16 +216,6 @@ Rain[Rain &lt; 0] &lt;- NA
 
 <pre><code class="r"># Melt the data for easier plotting
 rain_df = melt(Rain)
-
-# Then call ggplot with x and y values as the X1 and X2 variables created
-# by melt
-ggplot(aes(x = X1, y = rev(X2), fill = value), data = land_df) + 
-    geom_raster() + coord_equal() + scale_fill_continuous(na.value = &quot;transparent&quot;) + 
-    labs(fill = &quot;MAP (mm/yr)&quot;) + opts(axis.text.x = theme_blank(), axis.text.y = theme_blank(), 
-    axis.ticks = theme_blank(), axis.title.x = theme_blank(), axis.title.y = theme_blank())
-</code></pre>
-
-<pre><code>## Error: object &#39;land_df&#39; not found
 </code></pre>
 
 <p>Then we can make the plot. I&#39;ve chosen all blank axes since I am plotting all of Africa. For something less obvious one may want to include geographic coordinates. I am working on how to do that, so stay posted. And, if someone else figures it out, let me know.</p>

@@ -21,34 +21,6 @@ setwd(wkdir)
 library(ncdf)
 library(ggplot2)
 library(reshape)
-```
-
-
-
-```
-## Loading required package: plyr
-```
-
-
-
-```
-## 
-## Attaching package: 'reshape'
-## 
-```
-
-
-
-```
-## The following object(s) are masked from 'package:plyr':
-## 
-##     rename, round_any
-## 
-```
-
-
-
-```r
 
 # Extract netCDF data and place precipitation data ('pre') in the variable
 # 'Rain0'
@@ -74,19 +46,6 @@ Now we can move to actually making the plot. First we melt the data,
 ```r
 # Melt the data for easier plotting
 rain_df = melt(Rain)
-
-# Then call ggplot with x and y values as the X1 and X2 variables created
-# by melt
-ggplot(aes(x = X1, y = rev(X2), fill = value), data = land_df) + 
-    geom_raster() + coord_equal() + scale_fill_continuous(na.value = "transparent") + 
-    labs(fill = "MAP (mm/yr)") + opts(axis.text.x = theme_blank(), axis.text.y = theme_blank(), 
-    axis.ticks = theme_blank(), axis.title.x = theme_blank(), axis.title.y = theme_blank())
-```
-
-
-
-```
-## Error: object 'land_df' not found
 ```
 
 

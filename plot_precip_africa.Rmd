@@ -9,7 +9,7 @@ First download the CRU precipitation data from this repository to your local wor
 
 Start by loading the necessary libraries (``ncdf``, ``ggplot2``, and ``reshape``) and naming some data variables.
 
-```{r, results='asis', echo=FALSE}
+```{r message=FALSE}
 #Set working directory (change according to your system)
 #Make sure to download the CRU precipitation data to the wkdir
 wkdir = "/users/atredenn/Plot_geographical_data/"
@@ -34,22 +34,9 @@ Rain[Rain<0] <- NA
 
 Now we can move to actually making the plot. First we melt the data,
 
-```{r, results='asis', echo=FALSE}
+```{r  message=FALSE}
 #Melt the data for easier plotting
 rain_df = melt(Rain)
-
-#Then call ggplot with x and y values as the X1 and X2 variables created by melt
-ggplot(aes(x = X1, y = rev(X2), fill = value), data = land_df) + 
-  geom_raster() + coord_equal() + 
-  scale_fill_continuous(na.value = "transparent") +
-  labs(fill = "MAP (mm/yr)")  +
-  opts(
-    axis.text.x=theme_blank(),
-    axis.text.y=theme_blank(),
-    axis.ticks=theme_blank(),
-    axis.title.x=theme_blank(),
-    axis.title.y=theme_blank()
-    )
 ```
 
 Then we can make the plot. I've chosen all blank axes since I am plotting all of Africa. For something less obvious one may want to include geographic coordinates. I am working on how to do that, so stay posted. And, if someone else figures it out, let me know.
